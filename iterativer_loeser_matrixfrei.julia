@@ -1,0 +1,101 @@
+function bedingung(A,b,x)
+    n=size(x)[1]
+    ergebnis=zeros(size(x)[1])
+    ergebnis[1]=A[2]*x[1]+A[3]*x[2]
+    for(i in 2:n-1)
+        ergebnis[i]=A[1]*x[i-1]+A[2]*x[i]+A[3]*x[i+1]
+    end
+    ergebnis[end]=A[1]*x[end-1]+A[2]*x[end]
+    return ergebnis
+end
+
+function iterativer_loeser(a,b,x,residuum,w)
+    anzahl=0
+    n=size(x)[1]
+    while(residuum<=norm(b-bedingung(a,b,x),Inf))
+        xalt=copy(x)
+        x[1]= (1-w)*xalt[1]+((w/a[2])*(b[1]-(a[3]*xalt[2])))
+        for(i in 2:n-1)
+            x[i]= (1-w)*xalt[i]+((w/a[2])*(b[i]-(a[1]*xalt[i-1]+a[3]*xalt[i+1])))
+        end
+        x[end]= (1-w)*xalt[end]+((w/a[2])*(b[end]-(a[1]*xalt[end-1])))
+        anzahl=anzahl+1
+    end
+    return x,anzahl
+end
+
+function iterativer_loeser_sor(a,b,x,residuum,w)
+    anzahl=0
+    n=size(x)[1]
+    while(residuum<=norm(b-bedingung(a,b,x),Inf))
+        x[1]= (1-w)*x[1]+((w/a[2])*(b[1]-(a[3]*x[2])))
+        for(i in 2:n-1)
+            x[i]= (1-w)*x[i]+((w/a[2])*(b[i]-(a[1]*x[i-1]+a[3]*x[i+1])))
+        end
+        x[end]= (1-w)*x[end]+((w/a[2])*(b[end]-(a[1]*x[end-1])))
+        anzahl=anzahl+1
+    end
+    return x,anzahl
+end
+
+function make_A(n)
+    return [-((n+1)*(n+1)), 2*((n+1)*(n+1)), -((n+1)*(n+1))]
+end
+
+
+ausgabe = open("/home/zam/heisters/projects/julia-vs-python/ergebnis_julia_matrixfrei.txt", "w")
+n=10
+k=4
+iterativer_loeser(make_A(n),zeros(n),fouriermode(n,k),1,2/3)
+iterativer_loeser_sor(make_A(n),zeros(n),fouriermode(n,k),1,2/3)
+while(n<200000)
+    write(ausgabe, string(n), ";")
+    write(ausgabe, string(k), ";")
+    A=make_A(n)
+    koeffizient=0.1
+    b=zeros(n)
+    zeiten=zeros(25)
+    residuum=0.1
+    anzahl=0
+    w=2/3
+    w2=2/(1+sin(n+1))
+    for(i in eachindex(zeiten))
+        x= fouriermode(n,k)
+        t1 = time()
+        y, anzahl= iterativer_loeser(A,b,x,residuum,w)
+        t2 = time()
+        zeiten[i]=t2-t1
+    end
+    print(n,"\n")
+    write(ausgabe, string(anzahl), ";")
+    add=0
+    for(element in zeiten)
+        add += element
+    end
+    write(ausgabe, string(add/size(zeiten)[1], ";"))
+    write(ausgabe, string((add/size(zeiten)[1])/anzahl, ";"))
+    write(ausgabe, "OJC\n")
+
+    #write(ausgabe, string(n), ";")
+    #write(ausgabe, string(k), ";")
+    #zeiten2=zeros(25)
+    #for(i in eachindex(zeiten2))
+     #   x= fouriermode(n,k)
+     #   t1 = time()
+      #  _, anzahl=iterativer_loeser_sor(A,b,x,residuum,w2)
+      #  t2 = time()
+      #  zeiten2[i]=t2-t1
+      #  print(anzahl,"\n")
+    #end
+    #write(ausgabe, string(anzahl), ";")
+    #add=0
+    #for(element in zeiten2)
+    #    add += element
+    #end
+    #write(ausgabe, string(add/size(zeiten2)[1], ";"))
+    #write(ausgabe, string((add/size(zeiten2)[1])/anzahl, ";"))
+    #write(ausgabe, "SOR\n")
+    n *= 2
+    k *= 2
+end
+close(ausgabe)

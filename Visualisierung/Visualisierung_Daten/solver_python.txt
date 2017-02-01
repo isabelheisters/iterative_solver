@@ -1,0 +1,28 @@
+
+Residuum: 0.1
+
+SOR: 
+Zeit: 0.0345686244965
+Durschnittlicher Fehler: 0.986280272746
+Spektralradius: 0.939676341397
+
+Residuum: 0.01
+
+SOR: 
+Zeit: 0.042959651947
+Durschnittlicher Fehler: 0.986280272746
+Spektralradius: 0.939676341397
+
+Residuum: 0.001
+
+SOR: 
+Zeit: 0.0515832424164
+Durschnittlicher Fehler: 0.986280272746
+Spektralradius: 0.939676341397
+
+Residuum: 0.0001
+
+SOR: 
+Zeit: 0.0518775272369
+Durschnittlicher Fehler: 0.986280272746
+Spektralradius: 0.939676341397

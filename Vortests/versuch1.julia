@@ -1,0 +1,46 @@
+function maximum(x, y, h)
+    f(x,y) = -2*x
+    g(x,y) = -2*y
+    while( (x>h  || x<-h) && (y>h || y<-h))
+        betraggrad = sqrt((f(x,y) * f(x,y)) + (g(x,y) * g(x,y)))
+        gradx = (1/betraggrad) * f(x,y)
+        grady = (1/betraggrad) * g(x,y)
+        x = x + f(x,y) * h
+        y = y + g(x,y) * h
+    end
+    print("Maximum(", x,"|",y,")")
+end
+
+function ableitungx(h, x, y)
+    f(x,y)= 1-x*x-y*y
+    betrag = f(x,y)
+    x = x + h
+    return (f(x,y)-betrag) / h
+end
+
+function ableitungy(h, x,y)
+    f(x,y)= 1-x*x-y*y
+    betrag = f(x,y)
+    y = y + h
+    return (f(x,y) - betrag) / h
+end
+    
+function maximum_mit_ableitung(h, x,y)
+    while((x > h || x < -h) && (y > h || y < -h))
+        gradx = ableitungx(h, x, y)
+        grady = ableitungy(h, x, y)
+        betraggrad = sqrt((gradx * gradx) + (grady * grady))
+        gradx = (1 / betraggrad) * gradx
+        grady = (1 / betraggrad) * grady
+        x = x + gradx * h
+        y = y + grady * h
+    end
+    print("Maximum(", x, "|", y, ")")
+end
+
+tic()
+maximum(2,3,0.000001)
+toc()
+tic()
+maximum_mit_ableitung(0.000001, 2, 3)
+toc()

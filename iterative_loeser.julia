@@ -1,0 +1,213 @@
+function do_iteration_neu(A,b,x,P, koeffizient)
+    k = 0
+    L=lufact(P)
+    while (norm(b-A*x,Inf)) >= koeffizient
+        #v = \(P, (b-A*x))
+        v=\(L,(b-A*x))
+        x = x+v
+        k += 1
+    end
+    return x,k
+end
+
+function make_matrix(dimension)
+    vorfaktor = ((dimension+1)*(dimension+1))
+    x = spzeros(dimension,dimension)
+    u = 1
+    while u <= dimension
+        l = 1
+        while l <= dimension
+            if u == l
+                x[u,l] = vorfaktor*2
+            elseif u == l+1 || u == l-1
+                x[u,l] = vorfaktor*-1
+            end
+            l = l+1      
+        end
+        u = u+1
+    end
+    return x
+end
+
+function richardson_P(A)
+    return eye(A)
+end
+
+function jacobi_P(A)
+    return spdiagm(diag(A))
+end
+
+function gaussseidel_P(A)
+    return sparse(tril(A))
+end
+
+function gaussseidel_P_mit_w(A)
+    #w = 2/(1+sin(pi*(1/(size(A)[1]+1))))
+    w=1#2/(1+sin(size(A)[1]+1))
+    return (1/w)*spdiagm(diag(A))+tril(A,-1)
+end
+
+function jacobi_P_mit_w(A)
+    w = 2/3
+    return (1/w) * spdiagm(diag(A))
+end
+
+function spektralradius(A,P)
+    Binv = inv(full(P))
+    ergebnis = full(eye(A)-Binv*A)
+    return abs(last(sort(eigvals(ergebnis), by=abs)))
+end
+
+function durschnittlicher_fehler(A,b,x)
+    return norm(x)
+#     fehlervektor = x-(\(A,b))
+#     betrag = 0
+#     for number in fehlervektor
+#         betrag = betrag + number
+#     end
+#     return betrag/length(fehlervektor)
+end 
+
+   
+function mach_was(x, residuum, art)
+    write(ausgabe, string(residuum), "; ")
+    A = make_matrix(size(x)[1])
+    b = zeros(size(x)[1])
+    if(art == "GS")
+        #print("\n\nGauss Seidel: \n")
+        write(ausgabe, "GS; ")
+        P = gaussseidel_P(A)
+    elseif(art == "SOR")
+        print("\n\nSOR: \n")
+        write(ausgabe, "SOR; ")
+        P = gaussseidel_P_mit_w(A)
+    elseif(art == "JC")
+        #print("\n\nJacobi: \n")
+        write(ausgabe, "JC; ")
+        P = jacobi_P(A)
+    elseif(art == "OJC")
+        #print("\n\nOptimierter Jacobi: \n")
+        write(ausgabe, "OJC; ")
+        P = jacobi_P_mit_w(A)
+    elseif(art =="RI")
+        #print("\n\nRichardson: \n")
+        write(ausgabe, "RI; ")
+        P = richardson_P(A)
+    else
+        #print("Sie haben keine zulaessige Art angegeben.")
+        write(ausgabe, "UNGUELTIG; ")
+        return 0
+    end
+    
+    l=1
+    zeiten = zeros(25)
+    xerg = 0
+    k=0
+    while(l<=size(zeiten)[1])
+        t1 = time()
+        xerg, k = do_iteration_neu(A,b,x,P,residuum)
+        t2 = time()
+        zeiten[l]=t2-t1
+        l = l+1
+        print(k)
+    end
+    write(ausgabe, string(k),"; ")
+    durchschnitt = 0
+    for element in zeiten
+        durchschnitt = durchschnitt + element
+    end
+    durchschnitt = durchschnitt/size(zeiten)[1]
+    write(ausgabe, string(durchschnitt), "; ")
+    #print("\nZeitDurchschnitt: ", durchschnitt, "\nMaximum: ",maximum(zeiten), "\nMinimum: ", minimum(zeiten))
+    #@time xerg, k = do_iteration_neu(A,b,x,P,residuum)
+    fehler = durschnittlicher_fehler(A, b, xerg)
+    u = spektralradius(A, P)
+    write(ausgabe, string(fehler),"; ",string(u), "\n" )
+    #print("\nDurschnittlicher Fehler: ", fehler)
+    #print("\nSpektralradius: ", u)
+    return 1
+end
+
+function fouriermode(n,k)
+    x = zeros(n)
+    i=1
+    while i<=n
+        x[i] = sin((k*pi*(i))/(n+1))
+        i = i+1
+    end
+    return x
+end
+
+#hilfsmethode zum ausfuehren des jacobi
+function jacobinorm(n,k,koeffizient)
+    w=2/3
+    A=make_matrix(n)
+    b=zeros(n)
+    zeiten=zeros(25)
+    P = jacobi_P_mit_w(A)
+    anzahl=0
+    for(i in eachindex(zeiten))
+         x= fouriermode(n,k)
+         t1 = time()
+        _, anzahl= do_iteration_neu(A,b,x,P,koeffizient)
+         t2 = time()
+         zeiten[i]=t2-t1
+     end
+     print(n,"\n")
+     write(ausgabe, string(anzahl), ";")
+     add=0
+     for(element in zeiten)
+         add += element
+     end
+     write(ausgabe, string(add/size(zeiten)[1], ";"))
+     write(ausgabe, string((add/size(zeiten)[1])/anzahl, ";"))
+     write(ausgabe, "OJC\n")
+end
+ 
+#hilfsmethode zum ausfuehren des sor
+function sornorm(n,k,koeffizient)
+    w=1
+    A=make_matrix(n)
+    b=zeros(n)
+    zeiten=zeros(25)
+    P = gaussseidel_P_mit_w(A)
+    anzahl=0
+    for(i in eachindex(zeiten))
+       x= fouriermode(n,k)
+       t1 = time()
+        _, anzahl= do_iteration_neu(A,b,x,P,koeffizient)
+       t2 = time()
+       zeiten[i]=t2-t1
+    end
+    println(n)
+    write(ausgabe, string(anzahl), ";")
+    add=0
+    for(element in zeiten)
+       add += element
+    end
+    write(ausgabe, string(add/size(zeiten)[1], ";"))
+    write(ausgabe, string((add/size(zeiten)[1])/anzahl, ";"))
+    write(ausgabe, "SOR\n")
+end
+        
+    
+
+ausgabe = open("/home/zam/heisters/projects/julia-vs-python/Visualisierung/Visualisierung_Daten/ergebnis_julia_normal.txt", "w")
+n=10
+k=4
+koeffizient=0.1
+#um die startupzeit zu verringern
+iterativer_loeser(make_A(n),zeros(n),fouriermode(n,k),1,2/3)
+iterativer_loeser_sor(make_A(n),zeros(n),fouriermode(n,k),1,2/3)
+while(n<20000)
+    write(ausgabe, string(n), ";")
+    write(ausgabe, string(k), ";")
+    
+    #Hier muss entschieden werden, ob man SOR oder Jacobi oder beides ausfuehren moechte
+    #sornorm(n,k,koeffizient)
+    jacobinorm(n, k, koeffizient)       
+        
+    n *= 2
+    k *= 2
+end
+close(ausgabe)
