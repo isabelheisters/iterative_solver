@@ -1,0 +1,22 @@
+\select@language {ngerman}
+\contentsline {section}{\numberline {1}Einleitung}{2}{section.1}
+\contentsline {section}{\numberline {2}Gegebenheiten}{2}{section.2}
+\contentsline {section}{\numberline {3}Was sind Iterative L\"oser?}{2}{section.3}
+\contentsline {section}{\numberline {4}Verfahren}{4}{section.4}
+\contentsline {subsection}{\numberline {4.1}Wie ist der grundlegende Aufbau der Verfahren?}{4}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Richardson:}{4}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Verfahren mit Matrix Splitting(Jacobi, Gauss-Seidel)}{4}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Wann funktionieren die Verfahren?}{5}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Aufbauende Verfahren(SOR, gewichtetes Jacobi Verfahren)}{5}{subsection.4.5}
+\contentsline {section}{\numberline {5}Implementierung}{6}{section.5}
+\contentsline {section}{\numberline {6}Vergleich der einzelnen Verfahren}{7}{section.6}
+\contentsline {section}{\numberline {7}Vergleich zwischen Julia und Python anhand des SOR Verfahren}{8}{section.7}
+\contentsline {section}{\numberline {8}\"Uberpr\"ufung der Ergebnisse mithilfe des Jacobi Verfahren}{9}{section.8}
+\contentsline {section}{\numberline {9}Zwischenfazit}{11}{section.9}
+\contentsline {section}{\numberline {10}Matrixfreie Implementierung }{12}{section.10}
+\contentsline {subsection}{\numberline {10.1}Warum Matrixfreie Implementierung?}{12}{subsection.10.1}
+\contentsline {subsection}{\numberline {10.2}Was bedeutet Matrixfreie Implementierung?}{12}{subsection.10.2}
+\contentsline {subsection}{\numberline {10.3}Jacobi matrixfrei}{13}{subsection.10.3}
+\contentsline {subsection}{\numberline {10.4}SOR matrixfrei}{14}{subsection.10.4}
+\contentsline {subsection}{\numberline {10.5}Vergleich der Matrixfreien Varianten}{15}{subsection.10.5}
+\contentsline {section}{\numberline {11}Fazit}{16}{section.11}

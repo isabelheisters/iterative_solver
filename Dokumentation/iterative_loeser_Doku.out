@@ -1,0 +1,21 @@
+\BOOKMARK [1][-]{section.1}{Einleitung}{}% 1
+\BOOKMARK [1][-]{section.2}{Gegebenheiten}{}% 2
+\BOOKMARK [1][-]{section.3}{Was sind Iterative L\366ser?}{}% 3
+\BOOKMARK [1][-]{section.4}{Verfahren}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Wie ist der grundlegende Aufbau der Verfahren?}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{Richardson:}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.3}{Verfahren mit Matrix Splitting\(Jacobi, Gauss-Seidel\)}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.4}{Wann funktionieren die Verfahren?}{section.4}% 8
+\BOOKMARK [2][-]{subsection.4.5}{Aufbauende Verfahren\(SOR, gewichtetes Jacobi Verfahren\)}{section.4}% 9
+\BOOKMARK [1][-]{section.5}{Implementierung}{}% 10
+\BOOKMARK [1][-]{section.6}{Vergleich der einzelnen Verfahren}{}% 11
+\BOOKMARK [1][-]{section.7}{Vergleich zwischen Julia und Python anhand des SOR Verfahren}{}% 12
+\BOOKMARK [1][-]{section.8}{\334berpr\374fung der Ergebnisse mithilfe des Jacobi Verfahren}{}% 13
+\BOOKMARK [1][-]{section.9}{Zwischenfazit}{}% 14
+\BOOKMARK [1][-]{section.10}{Matrixfreie Implementierung }{}% 15
+\BOOKMARK [2][-]{subsection.10.1}{Warum Matrixfreie Implementierung?}{section.10}% 16
+\BOOKMARK [2][-]{subsection.10.2}{Was bedeutet Matrixfreie Implementierung?}{section.10}% 17
+\BOOKMARK [2][-]{subsection.10.3}{Jacobi matrixfrei}{section.10}% 18
+\BOOKMARK [2][-]{subsection.10.4}{SOR matrixfrei}{section.10}% 19
+\BOOKMARK [2][-]{subsection.10.5}{Vergleich der Matrixfreien Varianten}{section.10}% 20
+\BOOKMARK [1][-]{section.11}{Fazit}{}% 21
