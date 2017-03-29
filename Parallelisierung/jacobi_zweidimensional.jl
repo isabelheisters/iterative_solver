@@ -234,7 +234,8 @@ end
 MPI.Init()
 id = MPI.Comm_rank(MPI.COMM_WORLD)
 num_procs = MPI.Comm_size(MPI.COMM_WORLD)
-n=511
+n=511..
+
 k=18
 w=main(n,k)
 if id==0
