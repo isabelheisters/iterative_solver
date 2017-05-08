@@ -1,5 +1,6 @@
 \documentclass[a4paper, 11pt]{article}
 \usepackage[ngerman]{babel}
+\usepackage{amsmath}
 \begin{document}
 
     \tableofcontents
@@ -7,27 +8,53 @@
     \newpage
 
     \section{Einleitung}
-        \subsection{Motivation}
         \subsection{Die Programmiersprache Julia}
-    \section{Gegebenheiten}
+        Die Programmiersprache Julia ist eine noch sehr junge (2012) h\"{o}here dynamische High Performance Programmiersprache, die haupts\"{a}chlich f\"{u}r numerisches Rechnen entwickelt worden ist. Dabei wurde insbesondere darauf geachtet, dass der Code einfach zu schreiben ist und es trotzdem eine hohe Ausf\"{u}hrungsgeschwindigkeit gibt. Wo beispielsweise Python den Fokus haups\"{a}chlich darauf legt, dass der Code einfach zu schreiben ist und C demhingegen sehr schwer zu schreiben ist, aber daf\"{u}r eine sehr viel bessere Ausf\"{u}hrungsgeschwindigkeit hat, versucht Julia beides zu vereinen.
+         \newline Julia macht die Sprache an sich schnell, da sie das sogenannte  ''Zwei-Sprachen-Problem'' anders angehen. Bei Julia soll es m\"{o}glich sein alles in Julia selbst zu programmieren. Nur grundlegende Funktionen, wie beispielsweise Integer Operationen, For Schleifen, Rekursion oder Float Operationen benutzen C Operationen oder maipulieren C Structs. Das besondere au{\ss}erdem ist, das Julia im Grunde eine dynamische Sprache ist, aber trotzdem den Code in Maschienen Code umwandelt, was eigentlich nur typisch f\"{u}r statische Programmiersprachen ist.  
+  %       @Article{BezansonEtAl2017,
+  %       author = {Bezanson, Jeff and Edelman, Alan and Karpinski, Stefan and Shah, Viral B.},
+    %     title = {Julia: A Fresh Approach to Numerical Computing},
+    %     journal = {SIAM REVIEW},
+     %    year = {2017},
+     %    }
+         \newline Zudem ist Julia auch so entwickelt worden, um Paralleles Arbeiten, egal ob Shared Memory Computing oder Distributed Memory Computing zu erleichtern oder zu automatisieren
+         
+         \subsection{Motivation}
+         Ich m\"{o}chte in meiner Arbeit herausfinden, in wie weit Julia in der Lage ist diese Versprechen zu erf\"{u}llen. Daf\"{u}r werde ich numerische Programme in Julia schreiben und diese teilweise mit Python vergleichen, aber auch in Julia auf verschiedene M\"{o}glichkeiten eingehen, Code zu schreiben. Zudem werde ich sp\"{a}ter auch auf die Parallelisierbarkeit von Julia eingehen. Ich werde dies auch auf Juropa3 testen und feststellen in wie weit Julia eine M\"{o}glichkeit ist, damit auf Supercomputern zu arbeiten.
+         \newline Ich habe bereits einige Tests durchgef\"{u}hrt um die Timings auf der Webseite von Julia zu best\"{a}tigen.(Hier der Vergleich der Webseite und meinem Zeug) Ich habe allerdings auch einen Fall defunden, in dem Julia langsamer als Python ist, indem man Numpy und Cython benutzt.
+         \newline Ich werde im Verlauf dieser Arbeit einen Mehrgitter Algoritmus implementieren. Es geht also nicht nur um die technischen Aspekte der Programmiersprache Julia, sonder der mathematische Inhalt dieser Arbeit ist genau so wichtig. Grob gesagt ist der Mehrgitter Algorithmus dazu da ein Lineares Gleichungssystem in der Laufzeit O(n) ann\"{a}hernd zu l\"{o}sen. Daf\"{u}r braucht man aber einiges an mathematischem Vorwissen, welches ich im folgenden vorstellen werde.
+    
     \section{Mathematisches Vorwissen}
+    		
+    		\subsection{Iterative L\"{o}ser}
+    		Iterative L\"{o}ser werden benutzt um gro{\ss}e lineare Gleichungssysteme in der Form: $Ax=b$ aufzul\"{o}sen. Sie berechnen eine Ann\"{a}herung an die L\"{o}sung bis zu einem bestimmten Fehler $\epsilon$. Dadurch sind sie viel schneller als direkte L\"{o}sungsverfahren f\"{u}r lineare Gleichungen. Ein direkter L\"{o}ser berechnet die genau L\"{o}sung eines linearen Gleichungssystems. Iterative L\"{o}ser eignen sich besonders gut um Systeme aufzul\"{o}sen, in denen die $A$ Matrix sehr viele Nulleintr\"{a}ge hat. 
+    		\newline Es gibt verschiedene Iterative L\"{o}sungsverfahren. Ich werde hier allerdings nur drei vorstellen. Im Grunde ist es aber immer das gleiche Vorgehen, welches aber f\"{u}r jedes Verfahren modifiziert wird. Das mathematische Vorgehen ist dabei, dass man in jedem Iterationsschritt ein neues $x_{k+1}$ ausrechnen mit der Formel $$x_{k+1}=Mx_{k}+b.$$ M ist dabei Verfahrensabh\"{a}ngig. Die Idee zu dieser Gleichung kommt von der Fixpunktgleichung $x=(I-A)x+b$.
+    		\newline Am Anfang des Verfahrens muss angegeben werden, wie genau die Ann\"{a}herung sein soll. Vor jeder Iteration wird dabei gepr\"{u}ft, ob $$\left\|b-Ax_{k}\right\|<\epsilon.$$ Wenn dies erfuellt ist, brechen die Iterationen ab und das aktuelle $x_{k}$ ist das gesuchte.
+    			\subsubsection{Richardson}
+    			Richardson ist das am einfachsten umzusetzende Verfahren. Es ist aber in der Praxis kaum anwendbar, da es im Vergleich zu den anderen Verfahren sehr viele Iterationen braucht und oft nicht konvergiert. Die Idee ist, dass man mit der Fixpunktgleichung $x=(I-A)x+b$ arbeitet. Daraus ergibt sich das $$M_{Rich}=I-A$$ ist. Um dieses Verfahren zu verbessern kann man mit Vorkonditionierern arbeiten. Das bedeutet, dass man grunds\"{a}tzlich nicht die Gleichung $Ax=b$ l\"{o}st, sondern die Gleichung $$BAX=Bb$$ l\"{o}sen. Durch intelligentes w\"{a}hlen von $B$ kann man das Gleichungssystem so sehr vereinfachen. B sollte man so w\"ahlen, dass es nah an $A^{-1}$ ist oder die Gleichung einfacher zu berechnen wird. Im speziellen Fall bei Richardson, dass $B=I$ ist, also die Matrix einfacher zu berechnen macht. Daraus folgt, dass ich $M=I$ w\"{a}hlen kann. Deswegen ver\"{a}ndert sich auch die Iterationsberechnung: $$x_{k+1}=Mx_{k}+Bb$$
+                \subsubsection{Jacobi}
+                 Das Jacobi Verfahren, ist ein Verfahren, welches mit Matrix Splitting funktioniert. Die Idee beim Matrix Splitting ist, dass man die Matrix aufteilt in einen Teil der einfach zu invertieren ist und einen der schwer zu invertieren ist. Hier teilt man die Matrix als erstes in eine untere Dreiecksmatrix $L$, die Diagonalmatrix $D$ und die obere Dreiecksmatrix $U$. Daraus folgt, dass $$A = L+D+U.$$ Dies bestimmt nun den Vorkonditionierer $B$. F\"{u}r das Jacobi Verfahren w\"{a}hle ich $B_{Jac}=D^{-1}$. Daraus folgt, dass $$ M_{Jac}=I-D^{-1}A.$$
+                \subsubsection{Gauss Seidel}
+                Da man mit desto mehr Informationen auch niedrigere Iterationszahlen erreichen kann benutzt man f\"ur das Gauss-Seidel Verfahren $B_{GS} = (L+D)^{-1}$. Daraus folgt $$M_{GS} = I-(L+D)^{-1}A \Leftrightarrow M_{GS} = -(L+D)^{-1}U.$$ Vom Gauss-Seidel Verfahren gibt es auch andere Varianten wie den Backward Gauss Seidel bei dem $$M_{BGS} = -(U+D)^{-1 }L$$ oder den Symmetrischen Gauss Seidel $$M_{SGS}= M_{GS}M_{BGS}.$$ Mit diesen Verfahren arbeite ich allerdings nicht, da diese nicht wichtig f\"{u}r das Mehrgitterverfahren sind.
+                \subsubsection{Konvergenz}
+                Um zu \"{u}berpr\"{u}fen, ob diese Verfahren konvergieren, berechnet man den Spektralradius der Iterationsmatrix. Wenn $p(M)<1$ so konvergiert das Verfahren. Je kleiner der Spektralradius, desto schneller konvergiert das Verfahren.
+			\subsection{Fouriertransformation}            
+			Periodische Funktionen, wie etwa $f(x)=sin(x)$ k\"{o}nnen in einem Bereich mit Breite $l$ an bestimmten St\"{u}tzstellen abgetastet werden und daraufhin vektorisiert werden. Diese Stellen sind \"{a}quidistant im Abstand $\Delta h=\frac{l}{N+1}$, wobei N die Anzahl der St\"{u}tzstellen darstellt. Diese Werte werden in einen Vektor der L\"{a}nge $N$ geschrieben, da die Randwerte nicht beachtet werden.
+            \subsection{Zentriertes finites Differenzenverfahren mit Dirichlet Null Randbedingung}
+            Dis Idee hinter dem zentrierten finiten Differenzenverfahren ist, eine Approximation der Ableitung durch den Differenzenquotienten zu schaffen. Es gilt also:$$f'(x)=\lim\limits_{h \rightarrow 0}{\frac{f(x+h)-f(x)}{h}} \; \Rightarrow f'(x)\approx\frac{f(x+h)-f(x)}{h}.$$ Wenn h klein genug ist gilt dementsprechend: $$f'(x+h)=\frac{f(x+h)-f(x)}{h}.$$ Ich m\"{o}chte allerdings: $$f''(x)=(f')'(x)\approx $$
+            
             \subsection{Prolongation}
             \subsection{Restriktion}
-            \subsection{Glaetter}
-                \subsubsection{Jacobi}
-                \subsubsection{Gauss Seidel}
-            \subsection{Residuum}
-            \subsection{Fouriermode}
     \section{Mehrgitter}
+    	\subsection{Aufgabenstellung}
+    	Meine Aufgabe ist es, mithilfe das Mehrgitter Algorithmus ein lineares zweidimensionales Gleichungssystem der Form $Ax=b$ zu l\"{o}sen. Die Matrix $A$ w\"{a}hle ich dabei so, dass diese die Matrix ist die aus dem Finiten Differenzen Verfahren entsteht(gezeigt in 2.3). Da diese Matrix eine symetrische positiv definite Matrix ist, und zudem nur Elemente auf der Hauptiagonalen und den beiden Nebendiagonalen stehen hat. Den Vektor $b$ waehle ich als Nullvektor. Den Vektor $x$initialisiere ich mit den Werten die bei der Fouriertransformation mit der Funktion $ f(x,y)$ entsteht.
         \subsection{Was ist ein Mehrgitter?}
+        Der Mehrgitter Algorithmen wird benutzt um eine n\"{a}herungsweise L"{o}sung f"{u}r Gleichungssysteme zu berechnen. Der Vorteil dieses Algorithmus ist es, dass er f\"{u}r meine Problemstellung das LGS in der Laufzeit $O(n)$ l"{o}sen kann.
         \subsection{Warum benutzt man Mehrgitter?}
         \subsection{Zweigitter Algorithmus}
         \subsection{Mehrgitter Algorithmus}
     \section{Implementierung}
     \section{Parallelisierung}
     \section{Fazit}
-
-
-    Hallo
 
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/TeX Live for SUSE Linux) (format=pdflatex 2016.12.20)  28 FEB 2017 14:12
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/TeX Live for SUSE Linux) (format=pdflatex 2016.12.20)  25 APR 2017 10:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -36,52 +36,130 @@ File: babel.def 2013/05/16 v3.9f Babel common definitions
 )
 \l@naustrian = a dialect from \language\l@ngerman 
 Package babel Info: Making " an active character on input line 92.
-)) (./Mehrgitter_Doku.aux)
+))
+(/usr/share/texmf/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/share/texmf/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks14
+\ex@=\dimen104
+))
+(/usr/share/texmf/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen105
+)
+(/usr/share/texmf/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count88
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count89
+\leftroot@=\count90
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count91
+\DOTSCASE@=\count92
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen106
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count93
+\c@MaxMatrixCols=\count94
+\dotsspace@=\muskip10
+\c@parentequation=\count95
+\dspbrk@lvl=\count96
+\tag@help=\toks15
+\row@=\count97
+\column@=\count98
+\maxfields@=\count99
+\andhelp@=\toks16
+\eqnshift@=\dimen107
+\alignsep@=\dimen108
+\tagshift@=\dimen109
+\tagwidth@=\dimen110
+\totwidth@=\dimen111
+\lineht@=\dimen112
+\@envbody=\toks17
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks18
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+) (./Mehrgitter_Doku.aux)
 \openout1 = `Mehrgitter_Doku.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
 
 (./Mehrgitter_Doku.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 3.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 3.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 3.
+Overfull \hbox (10.20181pt too wide) in paragraph at lines 12--12
+ [][] []\OT1/cmr/m/n/10.95 Zentriertes fi-ni-tes Dif-fe-ren-zen-ver-fah-ren mit
+ Di-rich-let Null Rand- 
+ []
+
 )
 \tf@toc=\write3
 \openout3 = `Mehrgitter_Doku.toc'.
 
  [1
 
-{/usr/share/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./Mehrgitter_Doku.a
-ux) ) 
+{/usr/share/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (6.12692pt too wide) in paragraph at lines 12--21
+\OT1/cmr/m/n/10.95 Julia macht die Spra-che an sich schnell, da sie das so-ge-n
+ann-te ''Zwei-Sprachen-
+ []
+
+[2]
+Overfull \hbox (9.0166pt too wide) in paragraph at lines 31--32
+\OT1/cmr/m/n/10.95 Am An-fang des Ver-fah-rens muss an-ge-ge-ben wer-den, wie g
+e-nau die Ann[]aherung
+ []
+
+[3] [4]
+Overfull \hbox (5.5181pt too wide) in paragraph at lines 43--43
+[]\OT1/cmr/bx/n/12 Zentriertes fi-ni-tes Dif-fe-ren-zen-ver-fah-ren mit Di-rich
+-let Null
+ []
+
+[5] [6] (./Mehrgitter_Doku.aux) ) 
 Here is how much of TeX's memory you used:
- 655 strings out of 493315
- 7784 string characters out of 6145892
- 66368 words of memory out of 5000000
- 4166 multiletter control sequences out of 15000+600000
- 7897 words of font info for 28 fonts, out of 8000000 for 9000
+ 1263 strings out of 493315
+ 14476 string characters out of 6145892
+ 77085 words of memory out of 5000000
+ 4756 multiletter control sequences out of 15000+600000
+ 8571 words of font info for 31 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 23i,4n,23p,181b,174s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/te
-xmf/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf/fonts/type1/pub
-lic/amsfonts/cm/cmr10.pfb>
-Output written on Mehrgitter_Doku.pdf (2 pages, 50479 bytes).
+ 27i,5n,23p,980b,172s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf/fonts/type1/public/amsfonts/
+cm/cmbx10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr
+/share/texmf/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf/fonts/
+type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf/fonts/type1/public/amsfont
+s/cm/cmr10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/
+share/texmf/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/t
+ype1/public/amsfonts/cm/cmsy8.pfb>
+Output written on Mehrgitter_Doku.pdf (6 pages, 112830 bytes).
 PDF statistics:
- 23 PDF objects out of 1000 (max. 8388607)
- 15 compressed objects within 1 object stream
+ 55 PDF objects out of 1000 (max. 8388607)
+ 38 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

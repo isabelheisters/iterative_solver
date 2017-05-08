@@ -50,6 +50,7 @@ function jacobi_mit_residuum(id::Int64, num_procs::Int64, x::Array{Float64,2},a:
     gr1=size(x)[1]
     gr2=size(x)[2]
     halo_austausch!(id, num_procs,x,gr1-2, gr2-2)
+    anz=0
     while(residuum<=residuumsbedingung(a,x,b))
         xalt=copy(x)
         for i in 2:gr1-1
@@ -57,8 +58,10 @@ function jacobi_mit_residuum(id::Int64, num_procs::Int64, x::Array{Float64,2},a:
                 x[i,j]= (1-w)*xalt[i,j]+((w/a[3])*(b[i,j]-(a[1]*xalt[i-1,j]+a[2]*xalt[i,j-1]+a[4]*xalt[i,j+1]+a[5]*xalt[i+1,j])))
             end
         end
+        anz=anz+1
         halo_austausch!(id, num_procs,x,gr1-2, gr2-2)
     end
+    #println(anz)
     x=x[2:end-1, 2:end-1]
     return x
 end
@@ -207,35 +210,34 @@ function main(n::Int64, k::Int64)
         end
     end
     
-    #Die globalen x werte werden bestimmt und die matrixgroesse und das bedingt pro prozessor
+    #Ab hier werden die Prozessoren aufgeteilt, das heisst genau, dass jedem Prozessor eine matrixgroesse und ein globaler Index zugeordnet werden, abhaengig von seiner id
+    #Der Prozessor wird folgedermassen aufgeteilt:
+    #   --> als erstes wird ein horizontaler Schnitt in der Mitte gemacht, bei ungerader Anzahl wird dem oberen Zeile eine Zeile mehr zugeordnet
+    #   --> dann wird ein vertikaler Schnitt in der Mitte gemacht, bei ungerader Anzahl bekommt die linke Spalte eine Spalte mehr
+    #   --> dies wird fuer jeden Abschnitt solange gemacg=ht, wie Prozessoren da sind
+    # Wenn wir also eine 7x7 Matrix haben und vier Prozessoren, ist die Matrix folgendermassen aufgeteilt:(4,4)(4,3)(3,4)(3,3)(nach den id; ersten beiden oben , zweiten beiden unten)
+    #Abhaengig von der Prozessorenanzahl wir bei einer quadratzahl die Anzahl der x&yprocs festgestellt, indem man Wurzel zieht
+    #Bei Zweierpotenzen ist yprocs=xprocs*2
     if floor(sqrt(num_procs))^2==num_procs || num_procs==1
-        globy=convert(Int64,ceil((n+1)/sqrt(num_procs))*(id%sqrt(num_procs))+1)
-        if id%sqrt(num_procs)==sqrt(num_procs)-1
-            anzy=convert(Int64,n-globy+1)
-        else
-            anzy=convert(Int64,ceil((n+1)/sqrt(num_procs)))
-        end
-        
-        globx=convert(Int64,floor(id/sqrt(num_procs))*ceil((n+1)/sqrt(num_procs))+1)
-        
-        if id>=num_procs-sqrt(num_procs)
-            anzx=convert(Int64,n-globx+1)
-        else
-            anzx=convert(Int64, ceil((n+1)/sqrt(num_procs)))
-        end
+        xprocs=sqrt(num_procs)
+        yprocs=xprocs
     else
         xprocs=sqrt(convert(Int64, num_procs/2))
-        yprocs=xprocs*2 
-        globy=convert(Int64, ceil((n+1)/xprocs)*(id%xprocs)+1)
-        anzy=convert(Int64, ceil(n/xprocs))
-        if id%xprocs==3
-            anzy=anzy-1
-        end
-        globx=convert(Int64, floor(id/yprocs)*ceil((n+1)/yprocs)+1)
-        anzx=convert(Int64, ceil(n/yprocs))
-        if floor(id/yprocs)==yprocs-1
-            anzx=anzx-1
-        end
+        yprocs=xprocs*2
+    end
+    #Hier wird der globale yIndex festgelegt
+    globy=convert(Int64, ceil(n/xprocs)*(id%xprocs)+1)
+    #Die Anzahl der Y Dimension wird festgestelt, indem man n/xprocs teilt, wenndieser Abschnitt ein Randabschnitt und nicht der einzige Abschnitt ist, werden noch zeilen abgezogen
+    anzy=convert(Int64, ceil(n/xprocs))
+    if id%xprocs==xprocs-1 && xprocs!=1
+        anzy=n-globy+1
+    end
+    #Hier wird der globale yIndex festgelegt
+    globx=convert(Int64, floor(id/xprocs)*ceil(n/yprocs)+1)
+    #Die Anzahl der Y Dimension wird festgestelt, indem man n/yprocs teilt, wenn dieser Abschnitt ein Randabschnitt und nicht der einzige Abschnitt ist, werden noch spalten abgezogen
+    anzx=convert(Int64, ceil(n/yprocs))
+    if floor(id/xprocs)==yprocs-1 && yprocs!=1
+        anzx=n-globx+1
     end
     
     #Funktionen und A und x werden erzeugt
@@ -244,7 +246,6 @@ function main(n::Int64, k::Int64)
     A=[((n+1)*(n+1)), ((n+1)*(n+1)), -4*((n+1)*(n+1)), ((n+1)*(n+1)), ((n+1)*(n+1))]
     x=fourier(f,n,k,globx,globy,anzx,anzy)
     b=zeros(anzx,anzy)
-
     #Matrixmultiplikation
     #x=jacobi(id,num_procs,x,A,b,anzahl_iterationen, 2/3)
     x=jacobi_mit_residuum(id,num_procs,x,A,b,0.1,2/3)
@@ -258,25 +259,24 @@ end
 MPI.Init()
 id = MPI.Comm_rank(MPI.COMM_WORLD)
 num_procs = MPI.Comm_size(MPI.COMM_WORLD)
-n=127
-k=convert(Int64, floor(n/10*4))
+n=7
+k=3
 if(id==0)
-   str= "Daten/jacobi_zweidimensional_$(num_procs).txt"
+   str= "Daten/jacobi_zweidimensional$(num_procs).txt"
    datei=open(str,"w")
 end
-while n<5000
+while n<512
     if(id==0)
-        println(n)
+        #println(n)
         t1=time()
         error=main(n,k)
         t2=time()-t1
-        println(n, " ", t2)
+        println(n, " ", t2," ",error)
         write(datei,string(n),";",string(k),";"string(error),";",string(t2),";","0.1", ";\n")
     else
         error=main(n,k)
     end
     n=2*(n+1)-1
-    k=convert(Int64, floor(n/10*4))
 end
 if(id==0)
     close(datei)

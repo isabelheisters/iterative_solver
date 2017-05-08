@@ -1,0 +1,67 @@
+Bei den anderen Sachen wusste ich nicht was ich machen muss.
+
+b)
+jmp %start
+
+%tausche:
+PUSH EAX
+PUSH EBX
+POP EAX
+POP EBX
+ret
+
+
+%start:
+MOV EAX, 32
+MOV EBX, 36
+jmp %tausche
+
+d)
+jmp %start
+
+%Fakultaet:
+CMP ECX, EBX
+JE %else
+Mul ECX
+INC ECX
+jmp %Fakultaet
+%else:
+ret
+
+
+%start:
+MOV EAX, 1
+MOV ECX, 2
+MOV EBX, 10
+jmp %Fakultaet
+
+e)
+jmp %start
+
+%ggt:
+CMP EAX,0
+JNE else
+MOV EDX, EBX
+ret
+else:
+start_schleife:
+CMP EBX, 0
+JE ende_schleife
+CMP EAX, EBX
+JBE a_below_b
+SUB EAX, EBX
+JMP start_schleife
+
+a_below_b:
+SUB EBX, EAX
+JMP start_schleife
+
+ende_schleife:
+MOV EDX, EAX
+ret
+
+
+%start:
+MOV EAX, 32
+MOV EBX, 36
+jmp %ggt

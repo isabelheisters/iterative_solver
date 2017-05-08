@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/TeX Live for SUSE Linux) (format=pdflatex 2016.12.20)  3 MAR 2017 13:19
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/TeX Live for SUSE Linux) (format=pdflatex 2016.12.20)  4 APR 2017 14:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -320,61 +320,61 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language append on input line 62.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 80.
+(babel)             in language append on input line 81.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 80.
+(babel)             in language append on input line 81.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 90.
+(babel)             in language append on input line 91.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 90.
+(babel)             in language append on input line 91.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 90.
+(babel)             in language append on input line 91.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 90.
+(babel)             in language append on input line 91.
  [4]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 98.
+(babel)             in language append on input line 99.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 98.
+(babel)             in language append on input line 99.
 
-Overfull \hbox (1.50252pt too wide) in paragraph at lines 99--102
+Overfull \hbox (1.50252pt too wide) in paragraph at lines 100--103
 \OT1/cmr/m/n/10.95 Um zu be-ur-tei-len ob ei-nes die-ser Ver-fah-ren funk-tio-n
 iert, muss ich []uberpr[]ufen,
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 103.
+(babel)             in language append on input line 104.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 103.
+(babel)             in language append on input line 104.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 107.
+(babel)             in language append on input line 108.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 107.
+(babel)             in language append on input line 108.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 107.
+(babel)             in language append on input line 108.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 107.
+(babel)             in language append on input line 108.
 [5]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 109.
+(babel)             in language append on input line 110.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 109.
+(babel)             in language append on input line 110.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 139.
+(babel)             in language append on input line 140.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 139.
+(babel)             in language append on input line 140.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 139.
+(babel)             in language append on input line 140.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 139.
+(babel)             in language append on input line 140.
  [6]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 141.
+(babel)             in language append on input line 142.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 141.
+(babel)             in language append on input line 142.
 
 ! Undefined control sequence.
-l.146 \zitat
+l.147 \zitat
             {vorfaktor = (dimension+1)*(dimension+1)
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -385,27 +385,27 @@ and I'll forget about whatever was undefined.
 <iterationen.png, id=167, 566.5968pt x 421.3341pt>
 File: iterationen.png Graphic file (type png)
  <use iterationen.png>
-Package pdftex.def Info: iterationen.png used on input line 155.
+Package pdftex.def Info: iterationen.png used on input line 156.
 (pdftex.def)             Requested size: 360.0pt x 267.69847pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 162.
+(babel)             in language append on input line 163.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 162.
+(babel)             in language append on input line 163.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 162.
+(babel)             in language append on input line 163.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 162.
+(babel)             in language append on input line 163.
 
 [7 <./iterationen.png>]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 164.
+(babel)             in language append on input line 165.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 164.
+(babel)             in language append on input line 165.
  <SORneu.png, id=176, 567.3195pt x 422.7795pt>
 File: SORneu.png Graphic file (type png)
 
 <use SORneu.png>
-Package pdftex.def Info: SORneu.png used on input line 170.
+Package pdftex.def Info: SORneu.png used on input line 171.
 (pdftex.def)             Requested size: 360.0pt x 268.28136pt.
 
 Overfull \hbox (77.45856pt too wide) has occurred while \output is active
@@ -414,29 +414,29 @@ REN \OT1/cmr/m/n/10.95 8
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 179.
+(babel)             in language append on input line 180.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 179.
+(babel)             in language append on input line 180.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 179.
+(babel)             in language append on input line 180.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 179.
+(babel)             in language append on input line 180.
 [8 <./SORneu.png>]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 181.
+(babel)             in language append on input line 182.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 181.
+(babel)             in language append on input line 182.
  <Jacobi.png, id=183, 1664.3781pt x 1013.9481pt>
 File: Jacobi.png Graphic file (type png)
 
 <use Jacobi.png>
-Package pdftex.def Info: Jacobi.png used on input line 189.
+Package pdftex.def Info: Jacobi.png used on input line 190.
 (pdftex.def)             Requested size: 360.0pt x 219.30968pt.
  <Jacobineu.png, id=184, 567.3195pt x 422.7795pt>
 File: Jacobineu.png Graphic file (type png)
 
 <use Jacobineu.png>
-Package pdftex.def Info: Jacobineu.png used on input line 198.
+Package pdftex.def Info: Jacobineu.png used on input line 199.
 (pdftex.def)             Requested size: 360.0pt x 268.28136pt.
 
 
@@ -449,13 +449,13 @@ REN \OT1/cmr/m/n/10.95 9
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 204.
+(babel)             in language append on input line 205.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 204.
+(babel)             in language append on input line 205.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 204.
+(babel)             in language append on input line 205.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 204.
+(babel)             in language append on input line 205.
 [9 <./Jacobi.png>]
 Overfull \hbox (52.89949pt too wide) has occurred while \output is active
 \OT1/cmr/m/sl/10.95 8 []UBERPR[]UFUNG DER ERGEBNISSE MITHILFE DES JACOBI VERFAH
@@ -463,42 +463,42 @@ REN \OT1/cmr/m/n/10.95 10
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 205.
+(babel)             in language append on input line 206.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 205.
+(babel)             in language append on input line 206.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 205.
+(babel)             in language append on input line 206.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 205.
+(babel)             in language append on input line 206.
 [10 <./Jacobineu.png>]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 207.
+(babel)             in language append on input line 208.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 207.
+(babel)             in language append on input line 208.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 218.
+(babel)             in language append on input line 219.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 218.
+(babel)             in language append on input line 219.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 218.
+(babel)             in language append on input line 219.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 218.
+(babel)             in language append on input line 219.
  [11]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 220.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 220.
-Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language append on input line 221.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language append on input line 221.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 225.
+(babel)             in language append on input line 222.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 225.
+(babel)             in language append on input line 222.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language append on input line 226.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language append on input line 226.
 
 ! Undefined control sequence.
-l.231 \zitat
+l.232 \zitat
             {matrix = [-((n+1)*(n+1)), 2*((n+1)*(n+1)), -((n+1)*(n+1))]}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -507,21 +507,21 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 237.
+(babel)             in language append on input line 238.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 237.
+(babel)             in language append on input line 238.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 237.
+(babel)             in language append on input line 238.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 237.
+(babel)             in language append on input line 238.
 [12]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 239.
+(babel)             in language append on input line 240.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 239.
+(babel)             in language append on input line 240.
 
 ! Undefined control sequence.
-l.259 \zitat
+l.262 \zitat
             {x[i]= (1-w)*xalt[i]+((w/matrix[1])*(b[i]-(matrix[0]*xalt[i-1]+m...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -530,7 +530,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (80.37314pt too wide) in paragraph at lines 258--260
+Overfull \hbox (80.37314pt too wide) in paragraph at lines 261--263
 []\OT1/cmr/m/n/10.95 Die Im-ple-men-tie-rung sieht al-so fol-gen-der-mas-sen au
 s: x[i]= (1-w)*xalt[i]+((w/matrix[1])*(b[i]-
  []
@@ -539,34 +539,34 @@ s: x[i]= (1-w)*xalt[i]+((w/matrix[1])*(b[i]-
 File: jacobimatrixfrei.png Graphic file (type png)
 
 <use jacobimatrixfrei.png>
-Package pdftex.def Info: jacobimatrixfrei.png used on input line 265.
+Package pdftex.def Info: jacobimatrixfrei.png used on input line 271.
 (pdftex.def)             Requested size: 360.0pt x 267.69847pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 272.
+(babel)             in language append on input line 279.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 272.
+(babel)             in language append on input line 279.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 272.
+(babel)             in language append on input line 279.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 272.
+(babel)             in language append on input line 279.
 [13]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 274.
+(babel)             in language append on input line 281.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 274.
+(babel)             in language append on input line 281.
 
 ! Too many }'s.
-l.274 \subsection{SOR matrixfrei}}
+l.281 \subsection{SOR matrixfrei}}
                                   
 You've closed more groups than you opened.
 Such booboos are generally harmless, so keep going.
 
 ! Undefined control sequence.
-l.281 \zitat
+l.288 \zitat
             {x[i]= (1-w)*x[i]+((w/matrix[1])*(b[i]-(matrix[0]*x[i-1]+matrix[...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -577,56 +577,56 @@ and I'll forget about whatever was undefined.
 <SORmatrixfrei.png, id=215, 566.5968pt x 421.3341pt>
 File: SORmatrixfrei.png Graphic file (type png)
  <use SORmatrixfrei.png>
-Package pdftex.def Info: SORmatrixfrei.png used on input line 287.
+Package pdftex.def Info: SORmatrixfrei.png used on input line 296.
 (pdftex.def)             Requested size: 360.0pt x 267.69847pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 294.
+(babel)             in language append on input line 303.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 294.
+(babel)             in language append on input line 303.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 296.
+(babel)             in language append on input line 306.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 296.
+(babel)             in language append on input line 306.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 296.
+(babel)             in language append on input line 306.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 296.
+(babel)             in language append on input line 306.
 [14 <./jacobimatrixfrei.png>]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 297.
+(babel)             in language append on input line 307.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 297.
+(babel)             in language append on input line 307.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 297.
+(babel)             in language append on input line 307.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 297.
+(babel)             in language append on input line 307.
  [15 <./SORmatrixfrei.png>]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 299.
+(babel)             in language append on input line 309.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 299.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 303.
+(babel)             in language append on input line 309.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 313.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 303.
+(babel)             in language append on input line 313.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 303.
+(babel)             in language append on input line 313.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language append on input line 303.
+(babel)             in language append on input line 313.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language append on input line 303.
+(babel)             in language append on input line 313.
  [16]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 303.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 313.
 
 (./iterative_loeser_Doku.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 303.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 303.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 313.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 313.
 Package rerunfilecheck Info: File `iterative_loeser_Doku.out' has not changed.
 (rerunfilecheck)             Checksum: EBB9A178370BCBD4766203F859E19356;1518.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 303.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 313.
  ) 
 Here is how much of TeX's memory you used:
  5613 strings out of 493315
@@ -635,7 +635,7 @@ Here is how much of TeX's memory you used:
  8964 multiletter control sequences out of 15000+600000
  8418 words of font info for 30 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 29i,6n,32p,908b,344s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,6n,32p,293b,344s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf
 /fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf/fonts/type1/public
 /amsfonts/cm/cmex10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi10

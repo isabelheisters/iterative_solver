@@ -1,21 +1,23 @@
 \select@language {ngerman}
 \contentsline {section}{\numberline {1}Einleitung}{2}
-\contentsline {subsection}{\numberline {1.1}Motivation}{2}
-\contentsline {subsection}{\numberline {1.2}Die Programmiersprache Julia}{2}
-\contentsline {section}{\numberline {2}Gegebenheiten}{2}
-\contentsline {section}{\numberline {3}Mathematisches Vorwissen}{2}
-\contentsline {subsection}{\numberline {3.1}Prolongation}{2}
-\contentsline {subsection}{\numberline {3.2}Restriktion}{2}
-\contentsline {subsection}{\numberline {3.3}Glaetter}{2}
-\contentsline {subsubsection}{\numberline {3.3.1}Jacobi}{2}
-\contentsline {subsubsection}{\numberline {3.3.2}Gauss Seidel}{2}
-\contentsline {subsection}{\numberline {3.4}Residuum}{2}
-\contentsline {subsection}{\numberline {3.5}Fouriermode}{2}
-\contentsline {section}{\numberline {4}Mehrgitter}{2}
-\contentsline {subsection}{\numberline {4.1}Was ist ein Mehrgitter?}{2}
-\contentsline {subsection}{\numberline {4.2}Warum benutzt man Mehrgitter?}{2}
-\contentsline {subsection}{\numberline {4.3}Zweigitter Algorithmus}{2}
-\contentsline {subsection}{\numberline {4.4}Mehrgitter Algorithmus}{2}
-\contentsline {section}{\numberline {5}Implementierung}{2}
-\contentsline {section}{\numberline {6}Parallelisierung}{2}
-\contentsline {section}{\numberline {7}Fazit}{2}
+\contentsline {subsection}{\numberline {1.1}Die Programmiersprache Julia}{2}
+\contentsline {subsection}{\numberline {1.2}Motivation}{2}
+\contentsline {section}{\numberline {2}Mathematisches Vorwissen}{3}
+\contentsline {subsection}{\numberline {2.1}Iterative L\"{o}ser}{3}
+\contentsline {subsubsection}{\numberline {2.1.1}Richardson}{3}
+\contentsline {subsubsection}{\numberline {2.1.2}Jacobi}{4}
+\contentsline {subsubsection}{\numberline {2.1.3}Gauss Seidel}{4}
+\contentsline {subsubsection}{\numberline {2.1.4}Konvergenz}{4}
+\contentsline {subsection}{\numberline {2.2}Fouriertransformation}{5}
+\contentsline {subsection}{\numberline {2.3}Zentriertes finites Differenzenverfahren mit Dirichlet Null Randbedingung}{5}
+\contentsline {subsection}{\numberline {2.4}Prolongation}{5}
+\contentsline {subsection}{\numberline {2.5}Restriktion}{5}
+\contentsline {section}{\numberline {3}Mehrgitter}{5}
+\contentsline {subsection}{\numberline {3.1}Aufgabenstellung}{5}
+\contentsline {subsection}{\numberline {3.2}Was ist ein Mehrgitter?}{5}
+\contentsline {subsection}{\numberline {3.3}Warum benutzt man Mehrgitter?}{6}
+\contentsline {subsection}{\numberline {3.4}Zweigitter Algorithmus}{6}
+\contentsline {subsection}{\numberline {3.5}Mehrgitter Algorithmus}{6}
+\contentsline {section}{\numberline {4}Implementierung}{6}
+\contentsline {section}{\numberline {5}Parallelisierung}{6}
+\contentsline {section}{\numberline {6}Fazit}{6}
